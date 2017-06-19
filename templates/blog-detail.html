@@ -1,0 +1,15 @@
+<form action="{% url 'blog_get_detail' blog.id %}" method="POST">
+
+       {% csrf_token %}
+       {% for field in form %}
+           <div>      
+           {{ field.label }}:{{ field }}
+           </div>
+           // 提交表单错误信息
+           <div class="error" style="color:red">
+           {{ field.errors }}
+           </div>
+
+       {% endfor %}
+    <button type="submit"> 提交 </button>
+</form>
